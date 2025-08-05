@@ -48,7 +48,7 @@ public class RandomPlayer implements Player {
     boolean isBlack = true;
     if (previousStones != null && !previousStones.isEmpty()){
       Stone lastMove = previousStones.get(previousStones.size() - 1);
-      isBlack = !lastMove.isBlack();
+      isBlack = !lastMove.black();
     }
 
     return new Stone(

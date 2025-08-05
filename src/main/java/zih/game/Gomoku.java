@@ -59,19 +59,19 @@ public class Gomoku {
     if (!isValid(stone)){
       return new Result("Stone is off the board.");
     }
-    if (blacksTurn != stone.isBlack()) {
+    if (blacksTurn != stone.black()) {
       return new Result("Wrong player.");
     }
     // checks if the cells on the board array are already occupied
     // if it's not equal to 0, means occupied
-    if (board[stone.getRow()][stone.getColumn()] != 0){
+    if (board[stone.row()][stone.column()] != 0){
       return new Result("Duplicate move.");
     }
 
     // getRow and getColumn returns the row and column where the player
     // wants to place their stone
     // if it's black's turn place 'B' on the board, else 'W'
-    board[stone.getRow()][stone.getColumn()] = blacksTurn ? 'B' : 'W';
+    board[stone.row()][stone.column()] = blacksTurn ? 'B' : 'W';
     stones.add(stone);
 
     if (isWin(stone)){
@@ -100,16 +100,16 @@ public class Gomoku {
   // ensures there are no null stone or invalid range of row and column
   private boolean isValid(Stone stone){
     return stone != null
-            && stone.getRow() >= 0 && stone.getRow() < WIDTH
-            && stone.getColumn() >= 0 && stone.getColumn() < WIDTH;
+            && stone.row() >= 0 && stone.row() < WIDTH
+            && stone.column() >= 0 && stone.column() < WIDTH;
   }
 
   private boolean isWin(Stone stone){
-    char symbol = board[stone.getRow()][stone.getColumn()];
-    return isHorizontalWin(stone.getRow(), stone.getColumn(), symbol)
-            || isVerticalWin(stone.getRow(), stone.getColumn(), symbol)
-            || isDiagonalDownWin(stone.getRow(), stone.getColumn(), symbol)
-            || isDiagonalUpWin(stone.getRow(), stone.getColumn(), symbol);
+    char symbol = board[stone.row()][stone.column()];
+    return isHorizontalWin(stone.row(), stone.column(), symbol)
+            || isVerticalWin(stone.row(), stone.column(), symbol)
+            || isDiagonalDownWin(stone.row(), stone.column(), symbol)
+            || isDiagonalUpWin(stone.row(), stone.column(), symbol);
   }
 
   private boolean isHorizontalWin(int row, int column, char symbol) {

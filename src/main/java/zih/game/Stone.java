@@ -1,9 +1,13 @@
 package zih.game;
 
-public class Stone {
+public record Stone(int row, int column, boolean black) {
 
-  private final int row;
-  private final int column;
+}
+
+/*
+* public class Stone {
+
+  private final int row, column;
   private final boolean black;
 
   public Stone(int row, int column, boolean black) {
@@ -12,7 +16,9 @@ public class Stone {
     this.black = black;
   }
 
-  public int getRow(){return row;}
+  public int getRow(){
+    return row;
+  }
 
   public int getColumn() {
     return column;
@@ -22,3 +28,4 @@ public class Stone {
     return black;
   }
 }
+* */

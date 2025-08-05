@@ -5,6 +5,6 @@ public class App {
     // create a new instance of GameController
     // invoke the run method
     GameController gameController = new GameController();
-//  gameController.run();
+    gameController.run();
   }
 }
