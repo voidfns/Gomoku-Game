@@ -178,9 +178,16 @@ public class GameController {
     // place current move into result instance
     result = game.place(move);
     // update the board by placing the moves made by current player
-    board[move.row()][move.column()] = game.isBlacksTurn() ? 'B' : 'W';
+    row = move.row() - 1;
+    col = move.column() - 1;
+    board[row][col] = game.isBlacksTurn() ? 'B' : 'W';
     // display the result and print the board
-//    System.out.println(result);
+    if (result.getMessage() == null){
+      System.out.printf("Move successfully placed on row: %s, col: %s\n", move.row(), move.column());
+    } else {
+      System.out.println(result.getMessage());
+    }
+
     printBoard();
 
     return result;
